@@ -35,7 +35,7 @@ export const Title = styled.h1`
   }
 `
 
-export const Description = styled.p`
+export const Description = styled.div`
   padding: 0.5rem;
   max-width: 750px;
   margin: 0 auto;

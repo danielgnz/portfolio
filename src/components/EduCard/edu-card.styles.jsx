@@ -17,7 +17,7 @@ export const SubTitle = styled.p`
   color: #74808a;
 `
 
-export const Description = styled.p`
+export const Description = styled.div`
   color: #74808a;
   margin: 10px 0 0;
 `

@@ -22,8 +22,6 @@ const Layout = ({ children }) => {
     setOpen(true)
   }
 
-  useEffect(() => console.log("isMenuOpen: ", isMenuOpen), [isMenuOpen])
-
   // const data = useStaticQuery(graphql`
   //   query SiteTitleQuery {
   //     site {
