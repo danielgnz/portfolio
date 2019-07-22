@@ -29,7 +29,8 @@ export const Logo = styled.img`
 export const NavigationMenu = styled.div`
     
     @media only screen and (max-width: 767px) {
-        display: ${({ isOpen }) => (isOpen ? "flex" : "none")}
+        // display: ${({ isOpen }) => (isOpen ? "flex" : "none")}
+        display: none;
         height: 100vh;
         width: 100%;
         position: fixed;
@@ -42,6 +43,9 @@ export const NavigationMenu = styled.div`
         left: 0;
         right: 0;
         bottom: 0;
+
+        ${({ isOpen }) => isOpen ? `display: flex;` : `display: none;` }
+        
     }
 
     @media only screen and (min-width: 768px) {
