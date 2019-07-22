@@ -35,7 +35,7 @@ export const Footer = () => {
         <a href="https://www.linkedin.com/in/danielbuhaianu/">
           <LinkedInIcon />
         </a>
-        <a href="mailto:danibtechnology@gmail.com">
+        <a href="mailto:daniel@danielbuhaianu.com">
           <EmailIcon />
         </a>
       </ContainerItem>
