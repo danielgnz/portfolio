@@ -142,7 +142,7 @@ The one big mistake I made when deciding to start this business was not taking i
 
 I didn't think of the worst case scenario and I had a strong belief the store would soon start to make sales, but that wasn't true.
 
-If I were to start again, I would make a very consistent business plan and I would make I have at least $10,000 to spend on Advertising.
+If I were to start again, I would make a very consistent business plan and I would make sure I have at least $10,000 to spend on Advertising.
 
 ## Live Demo
 

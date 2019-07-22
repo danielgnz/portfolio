@@ -27,6 +27,13 @@ const classes = {
 }
 
 const Header = ({ isOpen, openMenu, closeMenu }) => {
+
+  const handleClick = () => {
+    if(isOpen) {
+      closeMenu()
+    }
+  }
+
   return (
     <HeaderContainer id="home">
       <LogoContainer>
@@ -36,13 +43,13 @@ const Header = ({ isOpen, openMenu, closeMenu }) => {
       </LogoContainer>
 
       <NavigationMenu isOpen={isOpen}>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/#about">About</NavLink>
-        <NavLink to="/#projects">Projects</NavLink>
-        <NavLink to="/#education">Education</NavLink>
-        <NavLink to="/#skills">Skills</NavLink>
-        <NavLink to="/blog">Blog</NavLink>
-        <NavLink to="/#contact">Contact</NavLink>
+        <NavLink to="/" onClick={handleClick}>Home</NavLink>
+        <NavLink to="/#about" onClick={handleClick}>About</NavLink>
+        <NavLink to="/#projects" onClick={handleClick}>Projects</NavLink>
+        <NavLink to="/#education" onClick={handleClick}>Education</NavLink>
+        <NavLink to="/#skills" onClick={handleClick}>Skills</NavLink>
+        <NavLink to="/blog" onClick={handleClick}>Blog</NavLink>
+        <NavLink to="/#contact" onClick={handleClick}>Contact</NavLink>
       </NavigationMenu>
 
       {isOpen ? (
