@@ -50,7 +50,7 @@ export const Hero = props => {
             </CallToActionItem>
 
             <CallToActionItem>
-              <a href="mailto:danibtechnology@gmail.com">
+              <a href="mailto:daniel@danielbuhaianu.com">
                 <EmailIcon />
               </a>
             </CallToActionItem>
