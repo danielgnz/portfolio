@@ -22,10 +22,8 @@ exports.createPages = ({ graphql, actions}) => {
     `).then(result => {
         result.data.allMarkdownRemark.edges.forEach(({ node }) => {
             const { category }  = node.frontmatter
-            
-            if(category !== "education") {
-                const component = (category === "projects") ? projectTemplate : postTemplate
-            
+            const component = (category === "posts") ? postTemplate : projectTemplate
+        
                 createPage({
                     path: node.frontmatter.path,
                     component: component,
@@ -33,8 +31,7 @@ exports.createPages = ({ graphql, actions}) => {
                         path: node.frontmatter.path,
                     },
                 })
-            }
+            })
             
         })
-    })
-}
+    }

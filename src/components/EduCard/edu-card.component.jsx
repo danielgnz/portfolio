@@ -1,22 +1,46 @@
 import React from "react"
+import { Link } from "gatsby"
 
-import { Container, Title, SubTitle, Description } from "./edu-card.styles"
+import { Container, Title, SubTitle, Description, Certificate, ReadMore, CallToAction } from "./edu-card.styles"
 
 export const EduCard = ({ data }) => {
   const { frontmatter } = data
-  const { name, startDate, finishDate, subject } = frontmatter
+  const { path, title, startDate, finishDate, type, excerpt, certificate } = frontmatter
 
   return (
     <Container>
-      <Title>{name}</Title>
+      
+      <Link to={path} style={{textDecoration: 'none'}}>
+        <Title>{title}</Title>
+      </Link>
+      
+      <SubTitle>
+      {
+        startDate === finishDate
+        ? `${startDate}`
+        : `${startDate} - ${finishDate}`
+        
+      }
+      </SubTitle>
 
-      <SubTitle>{startDate + " - " + finishDate}</SubTitle>
-
-      <SubTitle>{subject}</SubTitle>
+      <SubTitle>{type}</SubTitle>
 
       <Description>
-        <div dangerouslySetInnerHTML={{ __html: data.html }} />
+        { excerpt }
       </Description>
+      
+      <CallToAction>
+        
+        <Certificate href={certificate}>
+          View Certificate
+        </Certificate>
+
+        <ReadMore to={path}>
+          Read More >
+        </ReadMore>
+      </CallToAction>
+      
+
     </Container>
   )
 }

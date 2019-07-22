@@ -31,17 +31,19 @@ export const Education = () => {
   const data = useStaticQuery(
     graphql`
       query {
-        allMarkdownRemark(
-          filter: { frontmatter: { category: { eq: "education" } } }
-        ) {
+        allMarkdownRemark(filter: {frontmatter: {category: {eq: "education"}}}, sort: {fields: frontmatter___startDate, order: DESC}) {
           edges {
             node {
               id
               frontmatter {
-                startDate
-                finishDate
-                name
-                subject
+                path
+                startDate(formatString: "MMMM YYYY")
+                finishDate(formatString: "MMMM YYYY")
+                title
+                category
+                type
+                excerpt
+                certificate
               }
               html
             }

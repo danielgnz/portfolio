@@ -1,4 +1,7 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
+import { Link } from "gatsby"
+
+import { blueHover, textColour } from "../../variables"
 
 export const Container = styled.div`
   display: flex;
@@ -18,6 +21,32 @@ export const SubTitle = styled.p`
 `
 
 export const Description = styled.div`
-  color: #74808a;
+  color: #525f7f;
   margin: 10px 0 0;
+`
+
+export const CallToAction = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: .5em;
+`
+
+const linkStyle = css`
+  text-decoration: none;
+  color: ${blueHover};
+  font-weight: 600;
+
+  &:hover {
+    border-bottom: 1px solid ${textColour};
+  }
+
+`
+
+export const Certificate = styled.a`
+  ${linkStyle}
+
+`
+
+export const ReadMore = styled(Link)`
+  ${linkStyle}
 `
