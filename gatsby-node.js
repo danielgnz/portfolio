@@ -1,7 +1,40 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const { createFilePath } = require(`gatsby-source-filesystem`)
+const path = require(`path`)
 
-// You can delete this file if you're not using it
+const projectTemplate = path.resolve(`./src/templates/project-post.js`)
+const postTemplate = path.resolve(`./src/templates/blog-post.js`)
+
+exports.createPages = ({ graphql, actions}) => {
+    const { createPage } = actions
+    return graphql(`
+        {
+            allMarkdownRemark {
+                edges {
+                    node {
+                        frontmatter {
+                            path
+                            category
+                        }
+                    }
+                }
+            }
+        }
+    `).then(result => {
+        result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+            const { category }  = node.frontmatter
+            
+            if(category !== "education") {
+                const component = (category === "projects") ? projectTemplate : postTemplate
+            
+                createPage({
+                    path: node.frontmatter.path,
+                    component: component,
+                    context: {
+                        path: node.frontmatter.path,
+                    },
+                })
+            }
+            
+        })
+    })
+}

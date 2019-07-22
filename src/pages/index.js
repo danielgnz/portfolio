@@ -1,21 +1,52 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql } from "gatsby"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
+import Layout from "../components/Layout/layout.component.jsx"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
+import Hero from "../components/Hero/hero.component"
+import AboutMe from "../components/AboutMe/about-me.component"
+import Projects from "../components/Projects/projects.component"
+import Education from "../components/Education/education.component"
+import Skills from "../components/Skills/skills.component"
+import GetInTouch from "../components/GetInTouch/get-in-touch.component"
+import Blog from "../components/Blog/blog.component"
+
+export default ({ data }) => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    <Hero />
+    <AboutMe />
+    <Projects projects={data.allMarkdownRemark.edges} />
+    <Education />
+    <Skills />
+    <Blog />
+    <GetInTouch />
   </Layout>
 )
 
-export default IndexPage
+export const query = graphql`
+  query {
+    allMarkdownRemark(
+      filter: { frontmatter: { category: { eq: "projects" } } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            path
+            title
+            type
+            thumbnail {
+              childImageSharp {
+                fluid(maxWidth: 600) {
+                  src
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
