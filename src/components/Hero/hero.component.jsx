@@ -34,7 +34,7 @@ export const Hero = props => {
           </Description>
           <CallToActionContainer>
             <CallToActionItem>
-              <ResumeButton href="#">View Resume</ResumeButton>
+              <ResumeButton href="https://docs.google.com/document/d/19k8KZK5miA6aCeuQl0TD6KgGB1cZvDzZgJ_kTqvVlU0/edit?usp=sharing">View Resume</ResumeButton>
             </CallToActionItem>
 
             <CallToActionItem>
